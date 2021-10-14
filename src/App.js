@@ -1,23 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
+import {Grocery} from './Grocery.js';
+import {useState, useRef} from 'react';
 
 function App() {
+
+  const [groceries, setGroceries] = useState(["Bread", "Bananas"]);
+  const textInput = useRef(null);
+
+  function onButtonClick() {
+    let newItem = textInput.current.value;
+    let newGroceries = [...groceries, newItem];
+    setGroceries(newGroceries);
+    textInput.current.value = "";
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <input ref={textInput} type="text"/>
+      <button onClick={onButtonClick}>Add an item</button>
+      <ul>
+        {groceries.map(i => <Grocery item={i}/>)}
+      </ul>
     </div>
   );
 }
