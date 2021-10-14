@@ -15,7 +15,7 @@ function App() {
   }
   return (
     <div>
-      <input ref={textInput} type="text" data-testid="inputtt-field"/>
+      <input ref={textInput} type="text" data-testid="input-field"/>
       <button onClick={onButtonClick}>Add an item</button>
       <ul>
         {groceries.map(i => <Grocery item={i}/>)}
