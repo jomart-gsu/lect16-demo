@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import {Grocery} from './Grocery.js';
 import {useState, useRef} from 'react';
